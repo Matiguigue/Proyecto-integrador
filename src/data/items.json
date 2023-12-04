@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "item_name": "arroz",
+        "item_price": 50,
+        "price_symbol": "$"
+    },
+    {
+        "id": 2,
+        "item_name": "leche",
+        "item_price": 20,
+        "price_symbol": "$"
+    },
+    {
+        "id": 3,
+        "item_name": "fideos",
+        "item_price": 35,
+        "price_symbol": "$"
+    },
+    {
+        "id": 4,
+        "item_name": "galletitas",
+        "item_price": 12,
+        "price_symbol": "$"
+    }
+]

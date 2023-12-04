@@ -125,3 +125,6 @@
     color: var(--dark-500);
   }
   
+  .navbar__item--icon{
+    color: white;
+  }

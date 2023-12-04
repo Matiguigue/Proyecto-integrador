@@ -142,6 +142,10 @@ header{
     background-color: var(--primary-900);
 }
 
+.navbar__item--icon{
+    color: white;
+}
+
 /* HERO*/
 .hero{
     background-image: url(../img/funkos-banner.webp) ;
