@@ -1,13 +1,11 @@
 const express = require('express');
-const path = require('path')
+const {home, contact, faqs } = require('../controllers/main.controller');
 
 const router = express.Router();
 
-
-
-router.get('/home', (req, res) => res.send ('Vista de Home'));
-router.get('/contacto', (req, res) => res.send ('Esta es la vista de contacto'));
-router.get('/faqs', (req, res) => res.send ('Esta es la vista de Preguntas Frecuentes'));
+router.get('/home', home);
+router.get('/contacto', contact);
+router.get('/faqs', faqs);
 
 
 module.exports = router;
