@@ -13,16 +13,15 @@ const PORT = 3003;
 
 // Template Engines
 
-app.set('view engine ', 'ejs');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "./src/views"));
 
 // Middlewares de configuracion
 
-
 app.use(express.static('public'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 // Rutas
  
