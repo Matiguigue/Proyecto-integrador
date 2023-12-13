@@ -11,4 +11,11 @@ router.get('/item/:id', (req, res) => {
 
 });
 
+
+router.post('/item:id/add', (req, res) => res.send('Esta es la ruta para agregar un nuevo item'));
+
+router.get('/cart', (req, res) => res.send ('Vista de cart'));
+
+router.post('/cart', (req, res) => res.send ('Esta es la ruta para agregar un item al carrito'));
+
 module.exports = router;
