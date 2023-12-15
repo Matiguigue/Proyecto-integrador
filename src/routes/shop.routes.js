@@ -3,19 +3,16 @@ const path = require('path')
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.send ('Vista de shop'));
-router.get('/item/:id', (req, res) => {
-    const { id } = req.params;
+const { shop, item, addItem, cart, addToCart } = require('../controllers/shop.controller')
 
-    res.send(`Usted solicito el item: ${id}`);
+router.get('/', shop);
 
-});
+router.get('/item/:id', item); 
 
+router.post('/item:id/add', addItem);
 
-router.post('/item:id/add', (req, res) => res.send('Esta es la ruta para agregar un nuevo item'));
+router.get('/cart', cart);
 
-router.get('/cart', (req, res) => res.send ('Vista de cart'));
-
-router.post('/cart', (req, res) => res.send ('Esta es la ruta para agregar un item al carrito'));
+router.post('/cart', addToCart);
 
 module.exports = router;

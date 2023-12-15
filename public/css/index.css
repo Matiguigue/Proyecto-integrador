@@ -328,10 +328,16 @@ iconify-icon{
     padding: var(--spacing-68);
 
 }
+
 .footer__copy{
     margin-top: var(--spacing-36);
     text-align: center;
 }
+
+#brandRights{
+    text-align: center;
+}
+
 /* Animaciones*/
 @keyframes fade{
     0%{

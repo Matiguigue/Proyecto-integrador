@@ -2,15 +2,17 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/login', (req, res) => res.send('Vista de login'));
+const { login, doLogin, register, doRegister, logout } = require('../controllers/auth.controller')
 
-router.post('/login', (req, res) => res.send('Esta es la ruta que valida los datos de login'));
+router.get('/login', login);
 
-router.get('/register', (req, res) => res.send('Vista de register'));
+router.post('/login', doLogin);
 
-router.post('/register', (req, res) => res.send('Esta es la ruta que crea un nuevo usuario'));
+router.get('/register', register);
 
-router.get('/logout', (req, res) => res.send('Esta ruta cierra la sesion del usuario'));
+router.post('/register', doRegister);
+
+router.get('/logout', logout);
 
 
 module.exports = router
