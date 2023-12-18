@@ -1,72 +1,101 @@
 <%- include('../partials/header') %>
-    <main class="main-container">
-        <h1 class="edit__title__product">Editar item</h1>
-        <form class="edit__container-form" action="/admin/edit?_method=PUT" method="POST">
-            <div class="container__edit">
-                <label class="edit__label__product" for="fname">Categoria:</label>
-                <select class="edit__select__product" name="mayormenor" id="">
-                    <option value="mayorprecio">Seleccionar</option>
-                    <option value="menorprecio">Otro</option>
+<main class="main-container">
+    <h1 class="edit__title__product">Editar item</h1>
+    <form class="edit__container-form" action="/admin/edit?_method=PUT" method="POST">
+        <div class="container__edit">
+            <label class="edit__label__product" for="fname">Categoria:</label>
+            <select class="edit__select__product" name="mayormenor" id="">
+                    <% if ( product.category_id == 1) {  %>
+                    <option value="1" selected>Figuras coleccionables</option>
+                    <option value="3">Llaveros</option>
+                    <option value="2">Remeras</option>
+                <% } %>
+                <% if ( product.category_id == 2) {  %>
+                    <option value="1">Figuras coleccionables</option>
+                    <option value="3">Llaveros</option>
+                    <option value="2" selected>Remeras</option>
+                <% } %>
+                <% if ( product.category_id == 3) {  %>
+                    <option value="1">Figuras coleccionables</option>
+                    <option value="3"selected>Llaveros</option>
+                    <option value="2">Remeras</option>
+                <% } %>
 
-                </select>
+            </select>
 
-                <label class="edit__label2__product" for="fname">Licencia:</label>
-                <select class="edit__select__product" name="mayormenor" id="">
-                    <option value="mayorprecio">Seleccionar</option>
-                    <option value="menorprecio">Otro+</option>
+            <label class="edit__label2__product" for="fname">Licencia:</label>
+            <select class="edit__select__product" name="mayormenor" id="">
+                <% if ( product.licence_id == 2) {  %>
+                <option value="2" selected>Star Wars</option>
+                <option value="3">Pokemon</option>
+                <option value="1">Harry Potter</option>
+                <% } %>
+                <% if ( product.licence_id == 1) {  %>
+                <option value="2">Star Wars</option>
+                <option value="3">Harry Potter</option>
+                <option value="1"selected>Pokemon</option>
+                <% } %>
+                <% if ( product.licence_id == 3) {  %>
+                <option value="2">Star Wars</option>
+                <option value="3"selected>Harry Potter</option>
+                <option value="1">Pokemon</option>
+                <% } %>
 
-                </select>
+
+
+            </select>
+
+        </div>
+
+        <div class="container__edit">
+            <label class="edit__label__product" for="fname">Nombre del producto:</label>
+            <input class="edit__input__cat2" value="<%= product.product_name %>">
+        </div>
+        <textarea class="edit__textarea__product" cols="50" rows="10"
+            maxlength="100"><%= product.product_description %></textarea>
+        <div class="container__edit">
+            <label class="edit__label__product" for="fname">SKU:</label>
+            <input class="edit__input__cat" value="<%= product.sku %>">
+            <label class="edit__label__product" for="fname">Precio:</label>
+            <input class="edit__input__cat" value="$<%= product.price %>">
+            <label class="edit__label__product" for="fname">Stock:</label>
+            <input class="edit__input__cat" value="<%= product.stock %> unidades">
+        </div>
+        <div class="container__edit">
+            <label class="edit__label__product" for="fname">Descuento:</label>
+            <input class="edit__input__cat" value="<%= product.discount %>%">
+            <label class="edit__label__product" for="fname">Cuotas:</label>
+            <select class="edit__select__product" name="mayormenor" id="">
+                <option value="mayorprecio"><%= product.dues %> cuotas sin interés</option>
+                <option value="menorprecio">Otro+</option>
+            </select>
+
+        </div>
+        <div class="container__edit">
+            <label class="edit__label__product">Imagenes:</label>
+            <input type="file" id="uploadBtn">
+            <label for="uploadBtn" class="edit__label__submit"><i class="fa-solid fa-upload"></i> Upload
+                File</label>
+        </div>
+        <div class="edit_container_img">
+            <div class="container__edit__text">
+
+                <img class="edit__img__product" src="/img<%= product.img_front %>">
+                <p class="edit__text__detail">Frente</p>
 
             </div>
-
-            <div class="container__edit">
-                <label class="edit__label__product" for="fname">Nombre del producto:</label>
-                <input class="edit__input__cat2" value="<%= product.product_name %>">
+            <div class="container__edit__text">
+                <img class="edit__img__product" src="/img<%= product.img_back %>">
+                <p class="edit__text__detail">Dorso</p>
             </div>
-            <textarea class="edit__textarea__product" cols="50" rows="10" maxlength="100"><%= product.product_description %></textarea>
-            <div class="container__edit">
-                <label class="edit__label__product" for="fname">SKU:</label>
-                <input class="edit__input__cat" value="<%= product.sku %>">
-                <label class="edit__label__product" for="fname">Precio:</label>
-                <input class="edit__input__cat" value="<%= product.price %>">
-                <label class="edit__label__product" for="fname">Stock:</label>
-                <input class="edit__input__cat" value="<%= product.stock %>">
-            </div>
-            <div class="container__edit">
-                <label class="edit__label__product" for="fname">Descuento:</label>
-                <input class="edit__input__cat" value="<%= product.discount %>%">
-                <label class="edit__label__product" for="fname">Cuotas:</label>
-                <select class="edit__select__product" name="mayormenor" id="">
-                    <option value="mayorprecio"><%= product.dues %> cuotas sin interés</option>
-                    <option value="menorprecio">Otro+</option>
-                </select>
+        </div>
 
-            </div>
-            <div class="container__edit">
-                <label class="edit__label__product">Imagenes:</label>
-                <input type="file" id="uploadBtn">
-                <label for="uploadBtn" class="edit__label__submit"><i class="fa-solid fa-upload"></i> Upload
-                    File</label>
-            </div>
-            <div class="edit_container_img">
-                <div class="container__edit__text">
+        <div class="container__edit">
+            <input type="submit" value="Modificar producto">
 
-                    <img class="edit__img__product" src="/img<%= product.img_front %>">
-                    <p class="edit__text__detail">Frente</p>
+        </div>
+</main>
 
-                </div>
-                <div class="container__edit__text">
-                    <img class="edit__img__product" src="/img<%= product.img_back %>">
-                    <p class="edit__text__detail">Dorso</p>
-                </div>
-            </div>
-
-            <div class="container__edit">
-                <input type="submit" value="Modificar producto">
-
-            </div>
-    </main>
-
-    </form>
-    <%- include('../partials/footer') %>
+</form>
+<%- include('../partials/footer') %>
 </body>
