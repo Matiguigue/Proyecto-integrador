@@ -20,19 +20,15 @@
             <th class="tbl__item">Categoría</th>
         </tr>
 
-        <% data.forEach(product =>  %>
+        <% data.forEach(product => {  %>
         <tr class="tbl__row">
-            <td class="tbl__item">1</td>
-            <td class="tbl__item">STW0010001</td>
-            <td class="tbl__item">Baby Yoda Blueball</td>
-            <td class="tbl__item">Figura Coleccionable</td>
-            <td class="tbl__item tbl__icon__pencil">
-                <iconify-icon icon="subway:pencil"></iconify-icon>
-            </td>
-            <td class="tbl__item  tbl__icon__trash">
-                <iconify-icon icon="iconamoon:trash-fill"></iconify-icon>
-            </td>
-            <% )}; %>
+            <td class="tbl__item"><%= product.product_id %></td>
+            <td class="tbl__item"><%= product.sku %></td>
+            <td class="tbl__item"><%= product.product_name %></td>
+            <td class="tbl__item"><%= product.category_name %></td>
+            <td class="tbl__item tbl__icon__pencil"> <a href="/admin/edit/<%= product.product_id %>"><iconify-icon icon="subway:pencil"> </iconify-icon></a>  </td>
+            <td class="tbl__item  tbl__icon__trash"> <a href=""><iconify-icon icon="iconamoon:trash-fill"> </iconify-icon></a> </td>
+            <% }); %>
 
         </tr>
         </thead>

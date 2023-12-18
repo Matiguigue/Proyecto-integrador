@@ -5,14 +5,14 @@
             <div class="container__edit">
                 <label class="edit__label__product" for="fname">Categoria:</label>
                 <select class="edit__select__product" name="mayormenor" id="">
-                    <option value="mayorprecio">Figuras</option>
+                    <option value="mayorprecio">Seleccionar</option>
                     <option value="menorprecio">Otro</option>
 
                 </select>
 
                 <label class="edit__label2__product" for="fname">Licencia:</label>
                 <select class="edit__select__product" name="mayormenor" id="">
-                    <option value="mayorprecio">Naruto Shippuden</option>
+                    <option value="mayorprecio">Seleccionar</option>
                     <option value="menorprecio">Otro+</option>
 
                 </select>
@@ -21,23 +21,23 @@
 
             <div class="container__edit">
                 <label class="edit__label__product" for="fname">Nombre del producto:</label>
-                <input class="edit__input__cat2" placeholder="Kakashi Hatake Shippuden Saga">
+                <input class="edit__input__cat2" value="<%= product.product_name %>">
             </div>
-            <textarea class="edit__textarea__product" cols="50" rows="10" maxlength="100"></textarea>
+            <textarea class="edit__textarea__product" cols="50" rows="10" maxlength="100"><%= product.product_description %></textarea>
             <div class="container__edit">
                 <label class="edit__label__product" for="fname">SKU:</label>
-                <input class="edit__input__cat" placeholder="NAR001012">
+                <input class="edit__input__cat" value="<%= product.sku %>">
                 <label class="edit__label__product" for="fname">Precio:</label>
-                <input class="edit__input__cat" placeholder="$1.799,00">
+                <input class="edit__input__cat" value="<%= product.price %>">
                 <label class="edit__label__product" for="fname">Stock:</label>
-                <input class="edit__input__cat" placeholder="10">
+                <input class="edit__input__cat" value="<%= product.stock %>">
             </div>
             <div class="container__edit">
                 <label class="edit__label__product" for="fname">Descuento:</label>
-                <input class="edit__input__cat" placeholder="10%">
+                <input class="edit__input__cat" value="<%= product.discount %>%">
                 <label class="edit__label__product" for="fname">Cuotas:</label>
                 <select class="edit__select__product" name="mayormenor" id="">
-                    <option value="mayorprecio">6 coutas sin interés</option>
+                    <option value="mayorprecio"><%= product.dues %> cuotas sin interés</option>
                     <option value="menorprecio">Otro+</option>
                 </select>
 
@@ -51,12 +51,12 @@
             <div class="edit_container_img">
                 <div class="container__edit__text">
 
-                    <img class="edit__img__product" src="../../img/star-wars/luke-1.webp">
+                    <img class="edit__img__product" src="/img<%= product.img_front %>">
                     <p class="edit__text__detail">Frente</p>
 
                 </div>
                 <div class="container__edit__text">
-                    <img class="edit__img__product" src="../../img/star-wars/luke-box.webp">
+                    <img class="edit__img__product" src="/img<%= product.img_back %>">
                     <p class="edit__text__detail">Dorso</p>
                 </div>
             </div>
