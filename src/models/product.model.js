@@ -32,9 +32,10 @@ const getOne = async (param) => {
 
 const create = async (params) => {
     try {
-        const [product] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, img_front, img_back, licence_id, category_id) VALUES ?;', [params]);
+        const [product] = await conn.query('INSERT INTO product (product_name, product_description, price, stock, discount, sku, dues, img_front, img_back, category_id, licence_id) VALUES ?;', [params]);
         return product;
     } catch (error) {
+        console.error('error al crear el producto', error)
         return {
             error: true,
             message: 'Hemos encontrado un error ' + error
@@ -44,9 +45,40 @@ const create = async (params) => {
     }
 }
 
+const edit = async (params, id) => {
+    try {
+        const [product] = await conn.query('UPDATE product SET ? WHERE ?;', [params, id]);
+        return product;
+    } catch (error) {
+        console.error('error al editar el producto', error)
+        return {
+            error: true,
+            message: 'Hemos encontrado un error ' + error
+        }
+    } finally {
+        conn.releaseConnection();
+    }
+}
+
+    const deleteOne = async (params) => {
+    try {
+        const [product] = await conn.query('DELETE FROM product WHERE ?', params);
+        return product;
+    } catch (error) {
+        console.error('error al crear el producto', error)
+        return {
+            error: true,
+            message: 'Hemos encontrado un error ' + error
+        }
+    } finally {
+        conn.releaseConnection();
+    }
+}
 
 module.exports = {
     getAll,
     getOne,
-    create
+    create,
+    edit,
+    deleteOne
 }

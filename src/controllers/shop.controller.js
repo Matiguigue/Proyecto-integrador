@@ -1,5 +1,5 @@
 const path = require('path');
-const { getAll, getOne } = require('../models/product.model')
+const { getAll, getOne, edit } = require('../models/product.model')
 
 module.exports = {
     shop: async (req, res) => {
@@ -16,7 +16,7 @@ module.exports = {
     item: async (req, res) => {
         const itemId = req.params.id;
 
-        const [ item ] =  await getOne(itemId);
+        const [ item ] =  await getOne({ product_id: itemId });
 
         console.log(item);
 

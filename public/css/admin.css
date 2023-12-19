@@ -34,6 +34,13 @@
   .tbl__head{
     margin: var(--spacing-20);
   }
+
+  .tbl__row button{
+    background-color: transparent;
+    border: none;
+    font-size: 36px;
+    cursor: pointer;
+  }
   .tbl__row>th{
     text-align: left;
     font-weight: 900;

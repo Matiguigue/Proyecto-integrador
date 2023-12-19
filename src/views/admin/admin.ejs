@@ -28,7 +28,9 @@
             <td class="tbl__item"><%= product.product_name %></td>
             <td class="tbl__item"><%= product.category_name %></td>
             <td class="tbl__item tbl__icon__pencil"> <a href="/admin/edit/<%= product.product_id %>"><iconify-icon icon="subway:pencil"> </iconify-icon></a>  </td>
-            <td class="tbl__item  tbl__icon__trash"> <a href=""><iconify-icon icon="iconamoon:trash-fill"> </iconify-icon></a> </td>
+            <td class="tbl__item  tbl__icon__trash"> <form action="/admin/delete/<%= product.product_id %>?_method=DELETE" method="POST" enctype="application/x-www-form-urlencoded"> 
+                <button type="submit"><iconify-icon icon="iconamoon:trash-fill"> </iconify-icon></button>
+            </form> </td>
             <% }); %>
 
         </tr>

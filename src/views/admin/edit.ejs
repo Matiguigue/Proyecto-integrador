@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 <main class="main-container">
     <h1 class="edit__title__product">Editar item</h1>
-    <form class="edit__container-form" action="/admin/edit?_method=PUT" method="POST">
+    <form class="edit__container-form" action="/admin/edit/<%= product.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data" name="images">
         <div class="container__edit">
-            <label class="edit__label__product" for="fname">Categoria:</label>
-            <select class="edit__select__product" name="mayormenor" id="">
+            <label class="edit__label__product" for="category">Categoria:</label>
+            <select class="edit__select__product" name="category" id="">
                     <% if ( product.category_id == 1) {  %>
                     <option value="1" selected>Figuras coleccionables</option>
                     <option value="3">Llaveros</option>
@@ -23,8 +23,8 @@
 
             </select>
 
-            <label class="edit__label2__product" for="fname">Licencia:</label>
-            <select class="edit__select__product" name="mayormenor" id="">
+            <label class="edit__label2__product" for="licence">Licencia:</label>
+            <select class="edit__select__product" name="licence" id="">
                 <% if ( product.licence_id == 2) {  %>
                 <option value="2" selected>Star Wars</option>
                 <option value="3">Pokemon</option>
@@ -72,8 +72,8 @@
 
         </div>
         <div class="container__edit">
-            <label class="edit__label__product">Imagenes:</label>
-            <input type="file" id="uploadBtn">
+            <label class="edit__label__product" for="images">Imagenes:</label>
+            <input type="file" id="uploadBtn" name="images" id="img" multiple>
             <label for="uploadBtn" class="edit__label__submit"><i class="fa-solid fa-upload"></i> Upload
                 File</label>
         </div>
