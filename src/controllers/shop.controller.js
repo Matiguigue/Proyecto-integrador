@@ -1,5 +1,5 @@
 const path = require('path');
-const { getAll, getOne, edit } = require('../models/product.model')
+const { getAll, getOne } = require('../models/product.model')
 
 module.exports = {
     shop: async (req, res) => {

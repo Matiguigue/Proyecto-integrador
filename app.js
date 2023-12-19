@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
-const {initSession } = require('./src/middlewares/session');
+// const {initSession } = require('./src/middlewares/session');
  
 // Routes Imports
 
@@ -20,12 +20,12 @@ app.set('views', path.join(__dirname, './src/views'));
 
 // Crear sesion de usuario
 
-app.use(initSession());
+// app.use(initSession());
 
-app.use((req, res, next) => {
-    res.locals.isLogged = req.session.isLogged;
-    next();
-});
+// app.use((req, res, next) => {
+//     res.locals.isLogged = req.session.isLogged;
+//     next();
+// });
 
 // Middlewares de configuracion
 
